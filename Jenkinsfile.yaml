@@ -4,7 +4,10 @@ pipeline:
   stages:
     - stage: "Build"
       steps:
-        - echo "1"
+        - echo "Build is Successful"
     - stage: "Code-Scan"
       steps:
-        - echo "2"
+        - echo "Code scan is successful"
+    - stage: "Deployment"
+      steps:
+        - echo "Deployment is successful"
