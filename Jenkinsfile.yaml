@@ -1,13 +1,19 @@
 pipeline:
   agent:
-    none:
+    any:
   stages:
+    - stage: "SCM Checkout"
+      steps:
+        - sh "mvn -version"
+        - sh "java -version"
+        - sh "git --version"
     - stage: "Build"
       steps:
-        - echo "Build is Successful"
-    - stage: "Code-Scan"
+        #- git "https://github.com/learn-devops-fast/rock-paper-scissors.git"
+        - sh "ls -ltr"
+        - sh "mvn clean package"
+        - sh "mvn clean compile test install"
+    - stage: "Final Jenkins YAML Pipeline Stage"
       steps:
-        - echo "Code scan is successful"
-    - stage: "Deployment"
-      steps:
-        - echo "Deployment is successful"
+        - sh "echo 'Jenkins YAML Pipeline Complete'"
+
