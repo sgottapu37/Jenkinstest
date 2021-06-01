@@ -12,7 +12,7 @@ pipeline:
         ##- git "https://github.com/sgottapu37/Jenkinstest.git" 
         - sh "ls -ltr"
         - sh "cd my-app"
-        - sh "mvn compile"
+        - sh "mvn package"
     - stage: "Final Jenkins YAML Pipeline Stage"
       steps:
         - sh "echo 'Jenkins YAML Pipeline Complete'"
