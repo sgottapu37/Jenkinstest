@@ -9,7 +9,9 @@ pipeline:
         - sh "git --version"
     - stage: "Jenkins YAML Maven Build"
       steps:
-        - sh "mvn clean compile test install"
+        - git "https://github.com/sgottapu37/Jenkinstest.git" 
+        - sh "ls -ltr"
+        - sh "mvn compile"
     - stage: "Final Jenkins YAML Pipeline Stage"
       steps:
         - sh "echo 'Jenkins YAML Pipeline Complete'"
