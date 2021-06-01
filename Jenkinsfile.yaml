@@ -9,10 +9,8 @@ pipeline:
         - sh "git --version"
     - stage: "Build"
       steps:
-        #- git "https://github.com/learn-devops-fast/rock-paper-scissors.git"
         - sh "ls -ltr"
         - sh "mvn clean package"
-        - sh "mvn clean compile test install"
     - stage: "Final Jenkins YAML Pipeline Stage"
       steps:
         - sh "echo 'Jenkins YAML Pipeline Complete'"
