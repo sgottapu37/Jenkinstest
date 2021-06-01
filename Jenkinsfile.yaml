@@ -2,12 +2,17 @@ pipeline:
   agent:
     any:
   stages:
-    - stage: "Build"
+    - stage: "Log Jenkins Maven Docker Java and Git versions"
       steps:
-        - echo "Build is Successful"
-    - stage: "Code-Scan"
+        - sh "mvn -version"
+        - sh "java -version"
+        - sh "git --version"
+        - sh "docker --version"
+    - stage: "Jenkins YAML Maven Build"
       steps:
-        - echo "Code scan is successful"
-    - stage: "Deployment"
+        - git "https://github.com/learn-devops-fast/rock-paper-scissors.git"
+        - sh "mvn clean compile test install"
+    - stage: "Final Jenkins YAML Pipeline Stage"
       steps:
-        - echo "Deployment is successful"
+        - sh "echo 'Jenkins YAML Pipeline Complete'"
+
