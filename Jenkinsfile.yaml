@@ -13,6 +13,7 @@ pipeline:
         - sh "mvn clean package"
     - stage: "Deploy"
       steps:
+        - sh "pwd"
         - sh "java -cp /var/jenkins_home/workspace/Jenkinstest_main/target/helloworld-1.1.jar com.coveros.demo.helloworld"
         - sh "echo 'Jenkins YAML Pipeline Complete'"
 
