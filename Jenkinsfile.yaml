@@ -11,7 +11,8 @@ pipeline:
       steps:
         - sh "ls -ltr"
         - sh "mvn clean package"
-    - stage: "Final Jenkins YAML Pipeline Stage"
+    - stage: "Deploy"
       steps:
+        - sh "java -cp /var/jenkins_home/workspace/Jenkinstest_main/target/helloworld-1.1.jar com.mycompany.app.App"
         - sh "echo 'Jenkins YAML Pipeline Complete'"
 
