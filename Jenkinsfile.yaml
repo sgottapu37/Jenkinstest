@@ -10,10 +10,10 @@ pipeline:
     - stage: "Build"
       steps:
         - sh "ls -ltr"
-        - sh "mvn clean install"
+        - sh "mvn clean package"
     - stage: "Deploy"
       steps:
         - sh "pwd"
-        - sh "java jar /target/helloworld-1.1.jar"
+        - sh "java -cp target/helloworld-1.0.jar com.coveros.demo.helloworld.HelloWorld"
         - sh "echo 'Jenkins YAML Pipeline Complete'"
 
